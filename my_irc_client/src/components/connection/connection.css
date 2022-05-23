@@ -1,0 +1,28 @@
+h1{
+    font-size: 6em;
+    margin: 5vh;
+    text-decoration: underline;
+}
+input {
+    background-color: antiquewhite;
+    padding: 1.2vh 1vw;
+    width: 30vw;
+    border-radius: 20px;
+    font-size: .8em;
+    border: none;
+    color: #282c34;
+    font-weight: bold;
+    outline: none;
+}
+input:focus{
+    border: orange 3px solid;
+}
+input[type=submit]{
+    margin-top: 5vh;
+}
+form{
+    margin-top: 15vh;
+}
+.lstInput{
+    margin: 5vh 0;
+}
