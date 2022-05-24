@@ -4,7 +4,6 @@ import io from 'socket.io-client'
 
 const socket = io.connect('http://localhost:8000')
 
-
 export default function Connection() {
 
     const [username, setUsername] = useState('')
@@ -12,8 +11,8 @@ export default function Connection() {
    
     const sendData = (event) => {
         event.preventDefault()
-
-        if(username !== "" && room !== ""){
+        console.log("dsnj");
+        if(username.username !== "" && room.room !== ""){
             socket.emit('join-room', room)
         }
     }
@@ -22,7 +21,7 @@ export default function Connection() {
         <div className='connection' style={{textAlign: 'center'}}>
             <h1>Sign In</h1>
             <form onSubmit={sendData}>
-                <div>
+                <div className='frstInput'>
                     <div>
                         <label>Username :</label>
                     </div>

@@ -8,7 +8,6 @@ export default function Room() {
 
   return (
     <div className='room'>
-        <h1>Room</h1>
       <div className='flex'>
         <div className='container'>
           <div className='header'>
@@ -21,8 +20,9 @@ export default function Room() {
           </div>
 
           <div className='content'>
-            <div className='OtherUserMessage'>Message Toi</div>
-            <div className='userMessage'>Message Moi</div>
+            <div><div className='OtherUserMessage'>MessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessageMessage</div></div>
+            <div><div className='userMessage'>dnjsqdnjsqdnjsqdnjsqdnjsqdnjsqdnjsqdnjsqdnjsqdnjsqdnjsqdnjsqdnjsqdnjsq</div></div>
+
           </div>
 
           <div className='footer'>

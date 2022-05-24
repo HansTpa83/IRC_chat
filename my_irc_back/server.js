@@ -14,12 +14,19 @@ const port =  8000
 const host = "localhost"
 
 io.on('connection', (socket) => {
-    // console.log(`User ${socket.id} connected`);
+    console.log(socket.id);
+
     socket.on('join-room', (data) => {
-        socket.emit(data.room);
+        console.log(`Join room: ${data}`);
+        socket.emit(data);
     })
+    
+    socket.on('msg', (msg) => {
+        console.log(msg);
+    })
+    
     socket.on('disconnect', () => {
-        // console.log(`User ${socket.id} disconnected`);
+        console.log(`Disconnected`);
     })
 })
 

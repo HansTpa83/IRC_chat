@@ -1,11 +1,15 @@
 import './App.css';
+import Room from './components/room/Room'
+import Connection from './components/connection/Connection'
 
-import Nav from './components/nav/Nav';
 
 function App() {
+
+
   return (
     <div className="App">
-      <Nav/>
+      <Connection/>
+      <Room/> 
     </div>
   );
 }

@@ -1,5 +1,6 @@
 .room{
     padding: 0 5vw;
+    margin: 10vh 0;
 }
 .flex{
     display: flex;
@@ -21,6 +22,7 @@
     border-top-right-radius: 20px;
 }
 h2{
+    text-align: center;
     padding-bottom: .5rem;
 }
 .rond{
@@ -50,28 +52,53 @@ h2{
     Content
 */
 .content{
-    height: 60vh;
+    height: 70vh;
     background-color: antiquewhite;
+    overflow-y: scroll;
+    scrollbar-color: darkblue;
+    scrollbar-width: thin;
+    
 }
 .content div{
-    width: fit-content;
     padding: 1vh 1vw;
+    margin: 5px;
+}
+.userDivMsg{
+}
+.content::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: antiquewhite;
+}
+
+.content::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: antiquewhite;
+}
+
+.content::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: darkblue;
 }
 .OtherUserMessage{
-    margin: 5px;
+    padding: 10px;
     background-color: grey;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    word-wrap: break-word;
 }
 .userMessage{
-    text-align: right;
-    margin: 5px;
-    float: right;
+    padding: 10px;
     background-color: darkblue;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
+    word-wrap: break-word;
+    text-align: end;
+
 }
 
 /*

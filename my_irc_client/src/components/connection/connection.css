@@ -3,6 +3,10 @@ h1{
     margin: 5vh;
     text-decoration: underline;
 }
+.connection div{
+    height: auto;
+    padding: 1vh;
+}
 input {
     background-color: antiquewhite;
     padding: 1.2vh 1vw;
@@ -15,14 +19,15 @@ input {
     outline: none;
 }
 input:focus{
-    border: orange 3px solid;
+    border: orange 2px solid;
 }
 input[type=submit]{
     margin-top: 5vh;
 }
 form{
-    margin-top: 15vh;
+    margin-top: 10vh;
 }
+
 .lstInput{
     margin: 5vh 0;
 }
