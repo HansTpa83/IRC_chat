@@ -8,16 +8,12 @@ import io from 'socket.io-client'
 const socket = io.connect('http://localhost:8000')
 
 export default function Nav() {
-
-  const [username, setUsername] = useState('')
-  const [room, setRoom] = useState('')
-
   return (
     <div className='Nav'>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Log setUsername={setUsername} username={username}/>}/>
-          <Route path='/:room' element={<Room/>}/>
+          <Route path='/' element={<Log socket={socket}/>}/>
+          <Route path='/:room' element={<Room socket={socket}/>}/>
         </Routes>
       </BrowserRouter>
 
