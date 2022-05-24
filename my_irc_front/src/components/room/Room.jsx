@@ -12,6 +12,11 @@ export default function Room({socket}) {
 
   const handleKeyPress = async (event) => {
     setMsg(document.querySelector('.footer').textContent)
+
+    if (msg === ''){
+      return
+    }
+
     if(event.key === 'Enter'){
       const msgData = {
         room,
@@ -22,11 +27,16 @@ export default function Room({socket}) {
       document.querySelector('.footer').textContent = ''
     }
   }
+  const leave = () => {
+    socket.disconnect()
+  }
 
+  useEffect(()=>{
     socket.on('receive-msg', (data) => {
       console.log(data);
     })
-
+    console.log('UseEffect');
+  }, [socket])
 
   return (
     <div className='Room'>
@@ -34,7 +44,7 @@ export default function Room({socket}) {
         <div className="chat">
           <div className='header'>
             <div className='btn-container'>
-              <Link to='/' className='red'></Link>
+              <Link to='/' className='red' onClick={leave}></Link>
               <div className='orange'></div>
               <div className='green'></div>
             </div>

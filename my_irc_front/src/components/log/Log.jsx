@@ -7,6 +7,7 @@ const Log = ({socket}) => {
   const [room, setRoom] = useState('');
 
   const submit = (e) =>{
+    console.log(socket);
     if (username !== '' && room !== '') {
       socket.emit('join-room', room)
     } else {
@@ -39,7 +40,7 @@ const Log = ({socket}) => {
           />
         </div>
         <div className='margin' style={{padding:'5vh'}}>
-          <Link to={`room/?room=${room}&username=${username}`} onClick={submit}>Send</Link>
+          <Link className='btn-send' to={`room/?room=${room}&username=${username}`} onClick={submit}>Send</Link>
         </div>
       </form>
     </div>

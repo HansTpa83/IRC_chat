@@ -31,3 +31,6 @@ label{
     padding: 1vh 0;
     margin: 2.5vh;
 }
+.btn-send{
+    text-decoration: none;
+}

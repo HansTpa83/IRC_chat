@@ -13,12 +13,13 @@ const io = new Server(server, {
 const port =  8000
 const host = "localhost"
 
+
 io.on('connection', (socket) => {
     console.log(socket.id);
 
     socket.on('join-room', (data) => {
         console.log(`Join room: ${data}`);
-        socket.emit(data);
+        socket.join(data);
     })
     
     socket.on('send-msg', (data) => {
