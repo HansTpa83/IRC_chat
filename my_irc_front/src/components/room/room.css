@@ -1,0 +1,65 @@
+.chat, .users{
+    width: 50vw;
+    font-size: 1em;
+    margin: 5vh 5vw 0;
+}
+.flex{
+    display: flex;
+    justify-content: space-around;
+}
+/*
+    Header
+*/
+.header {
+    background-color: darkblue;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-size: 2rem;
+}
+
+.btn-container{
+    display: flex;
+    margin-top: 2vh;
+    margin-left: 2vw;
+}
+.green, .orange, .red{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-right: .5vw;
+}
+.red{
+    background-color: red;
+}
+.orange{
+    background-color: orange;
+}
+.green{
+    background-color: yellowgreen;
+}
+
+h2{
+    text-align: center;
+}
+
+/*
+    Content
+*/
+.content{
+    height: 70vh;
+    background-color: antiquewhite;
+}
+
+/*
+    Footer
+*/
+.footer{
+    background-color: darkblue;
+    min-height: 5vh;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    outline: none;
+    padding: 1vh 1vw;
+    font-size: 2em;
+    overflow-y: auto;
+}
