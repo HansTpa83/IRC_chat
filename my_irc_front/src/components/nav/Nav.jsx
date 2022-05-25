@@ -6,6 +6,7 @@ import Room from '../room/Room';
 
 import io from 'socket.io-client'
 const socket = io.connect('http://localhost:8000')
+
 export default function Nav() {
   return (
     <div className='Nav'>

@@ -9,13 +9,10 @@ export default function Room({socket}) {
   let username= params[1].split('=')[1]
 
   const [msg, setMsg] = useState('')
+  const [allMsg, setAllMsg] = useState([])
 
   const handleKeyPress = async (event) => {
     setMsg(document.querySelector('.footer').textContent)
-
-    if (msg === ''){
-      return
-    }
 
     if(event.key === 'Enter'){
       const msgData = {
@@ -27,15 +24,13 @@ export default function Room({socket}) {
       document.querySelector('.footer').textContent = ''
     }
   }
-  const leave = () => {
-    socket.disconnect()
-  }
-
+  console.log(allMsg);
+  
   useEffect(()=>{
     socket.on('receive-msg', (data) => {
-      console.log(data);
+      setAllMsg((list) => [...list, data])
+      console.log('Data:',data);
     })
-    console.log('UseEffect');
   }, [socket])
 
   return (
@@ -44,13 +39,17 @@ export default function Room({socket}) {
         <div className="chat">
           <div className='header'>
             <div className='btn-container'>
-              <Link to='/' className='red' onClick={leave}></Link>
+              <Link to='/' className='red'></Link>
               <div className='orange'></div>
               <div className='green'></div>
             </div>
             <h2>{room}</h2>
           </div>
-          <div className='content'>Content</div>
+          <div className='content'>
+            <ul className='msg-display'>
+              
+            </ul>
+          </div>
           <div className='footer' contentEditable value={msg} onKeyPress={handleKeyPress}></div>
         </div>
         <div className='users'>

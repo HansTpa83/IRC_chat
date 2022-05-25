@@ -15,10 +15,9 @@ const host = "localhost"
 
 
 io.on('connection', (socket) => {
-    console.log(socket.id);
 
     socket.on('join-room', (data) => {
-        console.log(`Join room: ${data}`);
+        console.log(`${socket.id} room: ${data}`);
         socket.join(data);
     })
     
