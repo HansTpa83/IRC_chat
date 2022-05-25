@@ -49,13 +49,58 @@ h2{
     height: 70vh;
     background-color: antiquewhite;
 }
+.msg-display{
+    color: antiquewhite;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.msg-display sub{
+    padding-top: 1vh;
+    font-weight: lighter;
+    font-style: italic;
+}
+.OtherUserMessage{
+    margin: 2vh 1vw;
+    padding: 10px;
+    background-color: grey;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    word-wrap: break-word;
+}
+.userMessage{
+    margin: 2vh 1vw;
+    padding: 10px;
+    background-color: darkblue;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    word-wrap: break-word;
+    text-align: end;
+}
+.content::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: antiquewhite;
+}
 
+.content::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: antiquewhite;
+}
+
+.content::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: darkblue;
+}
 /*
     Footer
 */
 .footer{
     background-color: darkblue;
-    min-height: 5vh;
+    min-height: 6vh;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     outline: none;

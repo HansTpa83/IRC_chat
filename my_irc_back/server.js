@@ -13,19 +13,29 @@ const io = new Server(server, {
 const port =  8000
 const host = "localhost"
 
-
 io.on('connection', (socket) => {
 
     socket.on('join-room', (data) => {
-        console.log(`${socket.id} room: ${data}`);
-        socket.join(data);
+        console.log('Room joined ', data.room)
+        socket.join(data.room);
+        // io.to(data.room).emit(data.username + ' join the room !');
     })
     
     socket.on('send-msg', (data) => {
         console.log('send-msg : ',data);
-        socket.to(data.room).emit('receive-msg', data)
+        io.to(data.room).emit('receive-msg', data)
     })
     
+    socket.on('command' ,(data) => {
+        switch (data.msg) {
+            case value:
+                
+                break;
+            default:
+                break;
+        }
+    })
+
     socket.on('disconnect', () => {
         console.log(`Disconnected`);
     })

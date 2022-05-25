@@ -7,9 +7,12 @@ const Log = ({socket}) => {
   const [room, setRoom] = useState('');
 
   const submit = (e) =>{
-    console.log(socket);
     if (username !== '' && room !== '') {
-      socket.emit('join-room', room)
+      let data = {
+        room,
+        username
+      }
+      socket.emit('join-room', data)
     } else {
       e.preventDefault()
     }
@@ -18,7 +21,7 @@ const Log = ({socket}) => {
   return (
     <div className='Log'>
       <h1>Sign In</h1>    
-      <form onSubmit={submit}>
+      <form>
         <div className='margin'>
           <label htmlFor="username">Username:</label>
           <input 

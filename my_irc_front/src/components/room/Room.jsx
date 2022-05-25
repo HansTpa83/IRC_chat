@@ -1,37 +1,50 @@
 import React, {useState, useEffect} from 'react'
+
 import {Link} from "react-router-dom";
 import './room.css'
 
 export default function Room({socket}) {
-  const url = window.location.search
-  let params = url.split('&')
-  let room= params[0].split('=')[1]
-  let username= params[1].split('=')[1]
-
-  const [msg, setMsg] = useState('')
   const [allMsg, setAllMsg] = useState([])
+  const [room, setRoom] = useState("");
+  const [username, setUsername] = useState("")
 
-  const handleKeyPress = async (event) => {
-    setMsg(document.querySelector('.footer').textContent)
+  useEffect(() => {
+    const url = window.location.search
+    let params = url.split('&')
+    let roomQuery= params[0].split('=')[1]
+    let usernameQuery= params[1].split('=')[1]
+    
+    setRoom(roomQuery)
+    setUsername(usernameQuery)
 
-    if(event.key === 'Enter'){
+    let data = {
+      room,
+      username
+    }
+
+    socket.emit('join-room', data)
+
+  }, [socket])
+
+  const handleKeyPress = (event) => {
+    if(event.key === 'Enter' && event.target.textContent != ''){
       const msgData = {
         room,
         username,
-        msg
+        msg: event.target.textContent
       }
-      await socket.emit('send-msg', msgData)
+      socket.emit('send-msg', msgData)
+
       document.querySelector('.footer').textContent = ''
     }
   }
-  console.log(allMsg);
-  
-  useEffect(()=>{
+
+
+  useEffect(() => {
     socket.on('receive-msg', (data) => {
-      setAllMsg((list) => [...list, data])
-      console.log('Data:',data);
+      setAllMsg((allMsg) => [...allMsg, data])
     })
-  }, [socket])
+  }, [])
 
   return (
     <div className='Room'>
@@ -47,17 +60,35 @@ export default function Room({socket}) {
           </div>
           <div className='content'>
             <ul className='msg-display'>
-              
+              {
+                allMsg.map((data, index) => {
+                  if (data.msg) {
+                    if(data.username === username){
+                      return (<li className='userMessage' key={index}>
+                        <p>{data.msg}</p>
+                        <sub>From: {data.username}</sub>
+                      </li>) 
+
+                    } else {
+
+                      return (<li className='OtherUserMessage' key={index}>
+                        <p>{data.msg}</p>
+                        <sub>From: {data.username}</sub>
+                      </li>) 
+                    }
+                  }
+                })
+              }
             </ul>
           </div>
-          <div className='footer' contentEditable value={msg} onKeyPress={handleKeyPress}></div>
+          <div contentEditable className='footer' onKeyPress={handleKeyPress}></div>
         </div>
         <div className='users'>
           <h2>Users connected</h2>
           <ul className='usersConnected'>
           </ul>
         </div>
-      </div> 
+      </div>
     </div>
   )
 }
