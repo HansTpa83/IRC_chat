@@ -1,32 +1,34 @@
-.chat, .users{
-    width: 50vw;
-    font-size: 1em;
-    margin: 5vh 5vw 0;
-}
-.flex{
+.Room{
+    padding: 2vh 2vw;
     display: flex;
     justify-content: space-around;
 }
+.chat{
+    width: 40vw;
+}
+.room h2{
+    text-align: center;
+}
+
 /*
     Header
 */
-.header {
+.header{
+    text-align: center;
     background-color: darkblue;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    font-size: 2rem;
+    padding-bottom: 1vh;
 }
-
-.btn-container{
+.chat-btn{
+    margin: 1vh;
     display: flex;
-    margin-top: 2vh;
-    margin-left: 2vw;
 }
-.green, .orange, .red{
-    width: 18px;
-    height: 18px;
+.chat-btn div, .chat-btn a{
+    width: 17px;
+    height: 17px;
     border-radius: 50%;
-    margin-right: .5vw;
+    margin: 2vh .2em 0;
 }
 .red{
     background-color: red;
@@ -38,74 +40,69 @@
     background-color: yellowgreen;
 }
 
-h2{
-    text-align: center;
-}
-
 /*
     Content
 */
 .content{
-    height: 70vh;
+    height: 60vh;
     background-color: antiquewhite;
+    color: darkblue;
+    overflow-y: auto;
 }
-.msg-display{
-    color: antiquewhite;
-    font-weight: bold;
-    font-size: 1.2em;
-}
-.msg-display sub{
-    padding-top: 1vh;
-    font-weight: lighter;
-    font-style: italic;
-}
-.OtherUserMessage{
-    margin: 2vh 1vw;
-    padding: 10px;
-    background-color: grey;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    word-wrap: break-word;
-}
-.userMessage{
-    margin: 2vh 1vw;
-    padding: 10px;
-    background-color: darkblue;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    word-wrap: break-word;
+.userMsg{
+    margin: 10px;
+    padding: 5px 10px;
     text-align: end;
+    background-color: darkblue;
+    color: antiquewhite;
+    border-top-left-radius: 20px;  
+    border-top-right-radius: 20px;  
+    border-bottom-left-radius: 20px;  
 }
+.otherMsg{
+    margin: 10px;
+    padding: 5px 10px;
+    background-color: grey;
+    color: antiquewhite;  
+    border-top-left-radius: 20px;  
+    border-top-right-radius: 20px;  
+    border-bottom-right-radius: 20px;  
+}
+
 .content::-webkit-scrollbar-track
 {
 	border-radius: 10px;
 	background-color: antiquewhite;
 }
-
 .content::-webkit-scrollbar
 {
 	width: 12px;
 	background-color: antiquewhite;
 }
-
 .content::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
 	background-color: darkblue;
 }
+
 /*
     Footer
 */
 .footer{
     background-color: darkblue;
-    min-height: 6vh;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    outline: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 50px;
     padding: 1vh 1vw;
-    font-size: 2em;
-    overflow-y: auto;
 }
-
+.footer input{
+    background-color: darkblue;
+    color: antiquewhite;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+}
+sup{
+    font-size: .5em;
+}

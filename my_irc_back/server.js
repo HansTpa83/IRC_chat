@@ -13,14 +13,17 @@ const io = new Server(server, {
 const port =  8000
 const host = "localhost"
 
-io.on('connection', (socket) => {
+let usersInRoom = []
+let rooms = []
+let allUsers = []
 
+io.on('connection', (socket) => {
+    console.log('Connected');
     socket.on('join-room', (data) => {
-        console.log('Room joined ', data.room)
-        socket.join(data.room);
-        // io.to(data.room).emit(data.username + ' join the room !');
+        console.log('Room joined');
+        socket.join(data.room)
     })
-    
+
     socket.on('send-msg', (data) => {
         console.log('send-msg : ',data);
         io.to(data.room).emit('receive-msg', data)
@@ -37,7 +40,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('disconnect', () => {
-        console.log(`Disconnected`);
+        console.log(`${socket.id} Disconnected`);
     })
 })
 

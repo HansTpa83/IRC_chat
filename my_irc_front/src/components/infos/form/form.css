@@ -1,0 +1,18 @@
+.Forms{
+    text-align: center;
+    margin: 5vh 5vw;
+}
+.Forms label {
+    margin: 2vh 0;
+}
+.Forms input{
+    border: 1px solid antiquewhite;
+    border-radius: 10px;
+    font-size: 1.2em;
+    width: 100%;
+    color: antiquewhite;
+    font-weight: bold;
+} 
+.room, .username{
+    margin: 5vh 0;
+}
