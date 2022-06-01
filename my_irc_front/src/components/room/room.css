@@ -8,6 +8,8 @@
 }
 .room h2{
     text-align: center;
+    margin: 2vh;
+    text-decoration: none;
 }
 
 /*
@@ -68,7 +70,13 @@
     border-top-right-radius: 20px;  
     border-bottom-right-radius: 20px;  
 }
-
+.servMsg{
+    margin: 10px;
+    padding: 5px 10px;
+    background-color: rgb(81, 125, 15);
+    color: antiquewhite;  
+    border-radius: 20px;
+}
 .content::-webkit-scrollbar-track
 {
 	border-radius: 10px;
@@ -105,4 +113,26 @@
 }
 sup{
     font-size: .5em;
+}
+
+
+.users-room{
+    overflow: auto;
+    height: 70vh;
+    text-align: center;
+}
+.users-room::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #282c34;
+}
+.users-room::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #282c34;
+}
+.users-room::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: antiquewhite;
 }

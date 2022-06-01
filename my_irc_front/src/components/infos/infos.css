@@ -5,3 +5,7 @@
 .component{
     width: 100%;
 }
+.AllUsers h2, .AllRooms h2{
+    margin: 5vh 0;
+    text-decoration: underline;
+}

@@ -1,6 +1,8 @@
 import './room.css'
 import React, { useState, useEffect } from 'react'
-import { useLocation , Link} from 'react-router-dom';
+import { useLocation , Link, Navigate} from 'react-router-dom';
+
+import UsersRoom from './UsersRoom';
 
 export default function Room({socket}) {
   
@@ -10,23 +12,22 @@ export default function Room({socket}) {
   const usernameQuery = query.get('username')
 
   const [allMsg, setAllMsg] = useState([])
-  const [allUsers, setAllUsers] = useState([])
 
   useEffect(() => {
     const data = {
       username: usernameQuery,
       room: roomQuery
     }
-    console.log(data);
     socket.emit('join-room', data)
     
   }, [socket]);
 
   /**
    * Send / receive Message
-   */
+  */
   useEffect(() => {
     socket.on('receive-msg', (data) => {
+      console.log(data);
       setAllMsg((allMsg) => [...allMsg, data])
     })
   }, []);
@@ -45,20 +46,46 @@ export default function Room({socket}) {
 
   /**
    * Users
-   */
+  */
   useEffect(() => {
     socket.on('users-update', (data) => {
+      console.log(data);
       setAllUsers((allMsg) => [...allMsg, data])
     })
   }, []);
+
+  /**
+   * Delete room
+  */
+  const delRoom = () => {
+    const infos = {
+      room:roomQuery, 
+      username: usernameQuery
+    }
+    socket.emit('delete',infos )
+    return(
+      <Navigate to="/" />
+    )
+  }
+
+  /**
+   * Leave room
+  */
+  const leaveRoom = () => {
+    const infos = {
+      room:roomQuery, 
+      username: usernameQuery
+    }
+    socket.emit('leave', infos)
+  }
 
   return (
     <div className='Room'>
         <div className='chat'>
           <div className='header'>
             <div className='chat-btn'>
-              <Link to='/' className='red'></Link>
-              <div className='orange'></div>
+              <Link to='/' className='red' onClick={delRoom}></Link>
+              <div to='/' className='orange' onClick={leaveRoom}></div>
               <div className='green'></div>
             </div>
             <h2>{roomQuery}</h2>
@@ -70,6 +97,13 @@ export default function Room({socket}) {
                 if (usernameQuery == message.username){
                   return(
                     <div key={index} className='userMsg'>
+                      <div>{message.msg}</div>
+                      <sup>{message.username}</sup>
+                    </div>
+                  )
+                } else if (message.username === 'Server'){
+                  return(
+                    <div key={index} className='servMsg'>
                       <div>{message.msg}</div>
                       <sup>{message.username}</sup>
                     </div>
@@ -91,20 +125,13 @@ export default function Room({socket}) {
               type="text"
               name="msg"
               onKeyUp={sendMsg}
+              placeholder='Message...'
             />
           </div>
         </div>
 
-        <div>
-          <h2>Users connected</h2>
-          <div className='users-room'>
-            {
-              allUsers.map((user, index) => {
-                <div key={index}>{user}</div>
-              })
-            }
-          </div>
-        </div>
+        <UsersRoom socket={socket} room={roomQuery}/>
+        
     </div>
   )
 }

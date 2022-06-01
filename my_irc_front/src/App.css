@@ -29,10 +29,7 @@ button, input[type="submit"], input[type="reset"] {
     cursor: pointer;
     outline: inherit;
 }
-h2{
-  margin: 5vh 0;
-  text-decoration: underline;
-}
+
 label{
   display: block;
 }
