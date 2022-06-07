@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+  font-size: 2em;
+  color: antiquewhite;
+  background-color: #282c34;
+  font-weight: bold;
+}
+input{
+  border:none;
+  background-image:none;
+  background-color:transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+input:focus{
+  outline: none;
+}
+button, input[type="submit"], input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+label{
+  display: block;
+}
+a{
+  text-decoration: none;
+}
+a:link {
+  color: inherit;
+}
+
+/* visited link */
+a:visited {
+  color: inherit;
+}
+
+/* mouse over link */
+a:hover {
+  color: inherit;
+}
+
+/* selected link */
+a:active {
+  color: inherit;
+}

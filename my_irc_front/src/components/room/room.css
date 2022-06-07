@@ -1,0 +1,138 @@
+.Room{
+    padding: 2vh 2vw;
+    display: flex;
+    justify-content: space-around;
+}
+.chat{
+    width: 40vw;
+}
+.room h2{
+    text-align: center;
+    margin: 2vh;
+    text-decoration: none;
+}
+
+/*
+    Header
+*/
+.header{
+    text-align: center;
+    background-color: darkblue;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-bottom: 1vh;
+}
+.chat-btn{
+    margin: 1vh;
+    display: flex;
+}
+.chat-btn div, .chat-btn a{
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    margin: 2vh .2em 0;
+}
+.red{
+    background-color: red;
+}
+.orange{
+    background-color: orange;
+}
+.green{
+    background-color: yellowgreen;
+}
+
+/*
+    Content
+*/
+.content{
+    height: 60vh;
+    background-color: antiquewhite;
+    color: darkblue;
+    overflow-y: auto;
+}
+.userMsg{
+    margin: 10px;
+    padding: 5px 10px;
+    text-align: end;
+    background-color: darkblue;
+    color: antiquewhite;
+    border-top-left-radius: 20px;  
+    border-top-right-radius: 20px;  
+    border-bottom-left-radius: 20px;  
+}
+.otherMsg{
+    margin: 10px;
+    padding: 5px 10px;
+    background-color: grey;
+    color: antiquewhite;  
+    border-top-left-radius: 20px;  
+    border-top-right-radius: 20px;  
+    border-bottom-right-radius: 20px;  
+}
+.servMsg{
+    margin: 10px;
+    padding: 5px 10px;
+    background-color: rgb(81, 125, 15);
+    color: antiquewhite;  
+    border-radius: 20px;
+}
+.content::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: antiquewhite;
+}
+.content::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: antiquewhite;
+}
+.content::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: darkblue;
+}
+
+/*
+    Footer
+*/
+.footer{
+    background-color: darkblue;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 50px;
+    padding: 1vh 1vw;
+}
+.footer input{
+    background-color: darkblue;
+    color: antiquewhite;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+}
+sup{
+    font-size: .5em;
+}
+
+
+.users-room{
+    overflow: auto;
+    height: 70vh;
+    text-align: center;
+}
+.users-room::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #282c34;
+}
+.users-room::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #282c34;
+}
+.users-room::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: antiquewhite;
+}
